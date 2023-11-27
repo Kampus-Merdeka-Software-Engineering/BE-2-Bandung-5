@@ -1,16 +1,21 @@
-const Sequelize = require('sequelize');
-require('dotenv').config();
+import "dotenv/config.js";
+import { Sequelize } from "sequelize";
 
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-  host: process.env.DB_HOST,
-  dialect: 'mysql',
-});
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Database Terhubung');
-  })
-  .catch((err) => {
-    console.error('Database Tidak Terhubung:', err);
-  });
-module.exports = sequelize;
+const db = new Sequelize(
+  process.env.DATABASE_NAME,
+  process.env.DATABASE_USER,
+  process.env.DATABASE_PASSWORD,
+  {
+    host: process.env.DATABASE_HOST,
+    dialect: "mysql",
+    define: {
+      timestamps: false,
+    },
+  }
+);
+
+db.authenticate()
+  .then(() => console.log("Databse connected"))
+  .catch((error) => console.log(`Unable to connect to database ${error}`));
+
+export default db;
