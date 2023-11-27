@@ -1,11 +1,23 @@
 const express = require('express')
-const app = express()
-const port = 3000
+const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+
+const port = process.env.PORT || 5002
+
+
+// addData()
+// app.use(cors())
+
+//middleware
+app.use(express.json())
+// app.disable('view cache');
+
+//router 
+app.get("/", (req,res)=>{
+    res.send( 'hw' );
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+
+app.listen(port, ()=>{
+    console.log('server started');
 })
