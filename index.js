@@ -1,3 +1,4 @@
+import "dotenv/config.js";
 const express = require('express');
 
 const userRoutes = require('./routes/users.js');
