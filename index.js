@@ -1,4 +1,4 @@
-import "dotenv/config.js";
+const sequelize = require('./config/sequelize');
 const express = require('express');
 
 const userRoutes = require('./routes/users.js');
