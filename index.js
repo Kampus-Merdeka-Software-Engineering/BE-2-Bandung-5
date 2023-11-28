@@ -16,9 +16,9 @@ app.use(express.json())
 // app.disable('view cache');
 
 //router 
-app.get("/", (req,res)=>{
-    res.send( 'hw' );
-})
+// app.get("/", (req,res)=>{
+//     res.send( 'hw' );
+// })
 
 sequelize.sync()
 app.listen(port, ()=>{
