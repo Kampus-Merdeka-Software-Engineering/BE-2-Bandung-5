@@ -5,7 +5,7 @@ const { sequelize, checkDatabaseConnection } = require('./config/config.js');
 dotenv.config();
 const app = express();
 
-const port = process.env.PORT || 4000;
+const port = process.env.DB_PORT;
 
 // Middleware
 app.use(express.json());
