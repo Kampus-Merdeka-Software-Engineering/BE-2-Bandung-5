@@ -1,26 +1,28 @@
-const express = require('express')
-require(dotenv).config()
-const sequelize = require("./config/config.js")
+const express = require('express');
+const dotenv = require('dotenv');
+const { sequelize, checkDatabaseConnection } = require('./config/config.js');
+
+dotenv.config();
 const app = express();
 
+const port = process.env.PORT || 4000;
 
+// Middleware
+app.use(express.json());
 
-const port = process.env.PORT || 4000
+// Router
+app.get('/', (req, res) => {
+  res.send('hw');
+});
 
-
-// addData()
-// app.use(cors())
-
-//middleware
-app.use(express.json())
-// app.disable('view cache');
-
-//router 
-// app.get("/", (req,res)=>{
-//     res.send( 'hw' );
-// })
-
-sequelize.sync()
-app.listen(port, ()=>{
-    console.log('server started');
-})
+// Check database connection before starting the server
+checkDatabaseConnection()
+  .then(() => {
+    sequelize.sync();
+    app.listen(port, () => {
+      console.log('Server started');
+    });
+  })
+  .catch((err) => {
+    console.error('Failed to connect to the database:', err);
+  });

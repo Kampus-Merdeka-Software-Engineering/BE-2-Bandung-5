@@ -1,28 +1,25 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const { sequelize, checkDatabaseConnection } = require('./config/config.js');
+const Sequelize = require('sequelize');
+require('dotenv').config();
 
-dotenv.config();
-const app = express();
-
-const port = process.env.PORT || 4000;
-
-// Middleware
-app.use(express.json());
-
-// Router
-app.get('/', (req, res) => {
-  res.send('hw');
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  dialect: 'mysql',
 });
 
-// Check database connection before starting the server
-checkDatabaseConnection()
-  .then(() => {
-    sequelize.sync();
-    app.listen(port, () => {
-      console.log('Server started');
-    });
-  })
-  .catch((err) => {
-    console.error('Failed to connect to the database:', err);
+const checkDatabaseConnection = () => {
+  return new Promise((resolve, reject) => {
+    sequelize
+      .authenticate()
+      .then(() => {
+        console.log('Database Terhubung');
+        resolve();
+      })
+      .catch((err) => {
+        console.error('Database Tidak Terhubung:', err);
+        reject(err);
+      });
   });
+};
+
+module.exports = { sequelize, checkDatabaseConnection };
