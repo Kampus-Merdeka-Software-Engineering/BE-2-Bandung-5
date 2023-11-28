@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 checkDatabaseConnection()
   .then(() => {
     sequelize.sync();
-    app.listen(port, () => {
+    app.listen(port, '0.0.0.0', () => {
       console.log(`Server started at http://localhost:${port}`);
     });
   })
