@@ -2,7 +2,18 @@ const dbConfig = require('../config/config.js');
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/config.js');
 
+<<<<<<< HEAD
 
+=======
+// sequelize.authenticate()
+//     .then(() => {
+//         console.log('/connected')
+//     }
+//     )
+//     .catch(err => {
+//         console.log('error');
+//     })
+>>>>>>> 8e46f9cc24f76839c26e8cb2f40ddf0231e5e39a
 const db = {}
 db.Sequelize = Sequelize
 db.sequelize = sequelize
