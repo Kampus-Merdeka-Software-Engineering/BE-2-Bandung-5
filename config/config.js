@@ -10,7 +10,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
 const checkDatabaseConnection = () => {
   return new Promise((resolve, reject) => {
     sequelize
-      .authenticate()
+      .sync()
       .then(() => {
         console.log('Database Terhubung');
         resolve();

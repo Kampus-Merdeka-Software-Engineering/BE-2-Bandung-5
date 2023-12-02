@@ -1,8 +1,8 @@
-const db = require('../models')
+const db = require('./models')
 
 //create main model
 const Lunggo_asset = db.lunggo_asset
-const User_booking = db.user_booking
+
 
 //main work
 
@@ -27,4 +27,8 @@ const getSingleAsset = async (req,res) => {
     let id = req.params.id
     let lunggo_asset = await Lunggo_asset.findOne({where: {id:id}})
     res.send(200).send(lunggo_asset)
+}
+
+module.exports = {
+    add_lunggo_asset, getAllAsset, getSingleAsset
 }

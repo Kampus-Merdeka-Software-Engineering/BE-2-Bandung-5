@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Lunggo_asset = sequelize.define("lunggo_asset",{
+    const Lunggo_asset = sequelize.define("lunggo_asset", {
         name_destination :{
             type: DataTypes.STRING,
             allowNull: false
@@ -16,10 +16,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        importan_info: {
+        important_info: {
             type: DataTypes.STRING,
             allowNull: false
         }
-    })
-    return lunggo_asset
-}
+    });
+    return Lunggo_asset // Make sure to use the same capitalization here
+};
