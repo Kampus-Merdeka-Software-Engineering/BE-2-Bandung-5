@@ -1,4 +1,3 @@
-const express = require('express');
 const assetController = require('../controllers/assetController')
 const router = require('express').Router()
 

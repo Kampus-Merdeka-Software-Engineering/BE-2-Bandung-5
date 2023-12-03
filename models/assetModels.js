@@ -20,6 +20,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         }
-    });
+    })
     return Lunggo_asset // Make sure to use the same capitalization here
-};
+}
