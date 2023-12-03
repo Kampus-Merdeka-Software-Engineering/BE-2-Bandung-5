@@ -1,4 +1,4 @@
-const db = require('./models')
+const db = require('../models/index')
 
 //create main model
 const Lunggo_asset = db.lunggo_asset
