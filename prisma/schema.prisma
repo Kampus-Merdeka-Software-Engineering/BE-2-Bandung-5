@@ -14,6 +14,7 @@ model lunggo_asset {
   name_destination String @db.VarChar(25)
   image String @db.VarChar(50)
   rating String @db.VarChar(5)
+  price String @db.VarChar(25)
   information String @db.VarChar(300)
   important_info String @db.VarChar(300)
 }
