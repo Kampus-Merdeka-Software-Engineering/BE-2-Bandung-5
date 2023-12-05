@@ -8,6 +8,15 @@ async function getAllAsset() {
         return err
     }
 }
+async function insertAsset(lunggo_asset){
+    try {
+        await prisma.lunggo_asset.create({
+            data: lunggo_asset,
+        })
+    } catch(err){
+        throw err
+    }
+}
 module.exports= {
-    getAllAsset
+    getAllAsset, insertAsset
 }
