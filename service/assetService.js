@@ -17,6 +17,23 @@ async function insertAsset(lunggo_asset){
         throw err
     }
 }
+async function getOneAsset(lunggo_asset) {
+    try {
+        const user = await prisma.lunggo_asset.findUnique({
+          where: {
+            id: id,
+          },
+        });
+    
+        if (user) {
+          console.log('User found:', user);
+        } else {
+          console.log('User not found');
+        }
+      } catch (error) {
+        console.error('Error fetching user:', error);
+}
+}
 module.exports= {
-    getAllAsset, insertAsset
+    getAllAsset, insertAsset, getOneAsset
 }

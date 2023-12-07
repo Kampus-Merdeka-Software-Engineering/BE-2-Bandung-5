@@ -12,9 +12,10 @@ datasource db {
 model lunggo_asset {
   id Int @id @default(autoincrement())
   name_destination String @db.VarChar(25)
+  location String @db.VarChar(25)
   image String @db.VarChar(50)
   rating String @db.VarChar(5)
-  price String @db.VarChar(25)
+  price Int @db.Int()
   information String @db.VarChar(300)
   important_info String @db.VarChar(300)
 }
@@ -27,5 +28,5 @@ model user_booking {
   address_office String @db.VarChar(255)
   date String @db.VarChar(15)
   people String @db.VarChar(15)
-  price_total String @db.VarChar(25)
+  price_total Int @db.Int()
 }
