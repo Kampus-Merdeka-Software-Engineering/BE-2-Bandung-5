@@ -8,11 +8,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const assetRoutes = require('./routes/assetRoutes')
-const userRoutes = require('./routes/userRoutes')
+const assetRoutes = require("./routes/assetRoutes");
+const userRoutes = require("./routes/userRoutes");
 
-app.use(assetRoutes)
-app.use(userRoutes)
+app.use(assetRoutes);
+app.use(userRoutes);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
